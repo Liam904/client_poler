@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './components/pages/Nav';
+import Nav from './pages/Nav';
 
 function App() {
   

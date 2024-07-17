@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import Login from './Login';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,12 +29,9 @@ function Signup() {
     } catch (error) {
       console.error('Error:', error);
     }
+    navigate('/login')
   };
-  if (handleSubmit){
-    <Navigate to={<Login />}  />
-
-  
-  }
+ 
 
   return (
     <div className="wrapper">

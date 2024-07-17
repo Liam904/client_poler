@@ -1,5 +1,5 @@
 import React from 'react'
-import NewGame from '../game/NewGame';
+import NewGame from '../components/game/NewGame';
 
 
 function Dashboard( ) {

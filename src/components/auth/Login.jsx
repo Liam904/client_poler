@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./css/login.css";
+import { useNavigate } from 'react-router-dom';
 
-function Login({props}) {
+function Login() {
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -30,6 +32,7 @@ function Login({props}) {
       });
       localStorage.setItem('token', res.data.access_token);
       console.log('Token:', res.data.access_token);
+      navigate("/")
       
     } catch (error) {
         console.log("error");
