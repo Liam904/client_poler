@@ -42,20 +42,19 @@ function DealCards() {
 
       }).then(
         function(res){
-          console.log(res);
-          if (res.data.valid){
-            setPlayerHand(function(prevPlayerHand) {
-              return prevPlayerHand.filter(function(card) {
-                return !(card[0] === rank && card[1] === suit);
-              });
-            });
-      
-      
-            setTableCards(prevTablCard =>(
-            prevTablCard.concat([[rank, suit]])
-          )
+          console.log(res.data);
+          console.log(tableCards);
+          if (res.data.valid) {
+            setPlayerHand(prevPlayerHand =>
+              prevPlayerHand.filter(card => !(card[0] === rank && card[1] === suit))
             );
-
+          
+            setTableCards(prevTableCards => 
+              prevTableCards.concat([[rank, suit]])
+            );
+            const { computer_hand, table_card } = res.data.computer_moves;
+              setComputerHand(computer_hand)
+              setTableCards(table_card)
           }
           else{
             console.log("Invalid move");
